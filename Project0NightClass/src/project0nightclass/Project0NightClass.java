@@ -1,21 +1,17 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package project0nightclass;
 
-/**
- *
- * @author EricC
- */
+import java.util.Scanner;
+
 public class Project0NightClass {
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
-        // TODO code application logic here
+        Scanner keyboard = new Scanner(System.in);
+        
+        System.out.println("Hello generic humanoid, I am the mighty computer, what is your name?");
+        String name = keyboard.nextLine();
+        System.out.println("Hello " + name + ", nice to meet you, how are you?");
+        keyboard.nextLine();
+        System.out.println("That's nice, I'm having a great eon!");
     }
     
 }
