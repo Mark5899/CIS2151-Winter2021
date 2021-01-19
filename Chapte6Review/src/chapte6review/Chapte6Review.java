@@ -12,6 +12,13 @@ public class Chapte6Review {
         }
         
         soccerBall.capture();
+        
+        // poor mans unit testing
+        if (soccerBall.getIsMoving() != false)
+        {
+            System.out.println("ERROR, SHOULD BE FALSE");
+        }
+        
         if (soccerBall.getIsMoving()) {
             System.out.println("The " + soccerBall.getDescription() + " is moving!");
         } else {

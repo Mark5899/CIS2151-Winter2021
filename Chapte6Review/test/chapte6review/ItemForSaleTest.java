@@ -20,58 +20,79 @@ public class ItemForSaleTest {
         ItemForSale item = new ItemForSale("", expectedPrice, 0);
         double actualPrice = item.getPrice();
         
-        // Assert
-        assertEquals(expectedPrice, actualPrice, .00000001);
+        // Assert - when using doubles, use the delta to say they are close enough
+        assertEquals(expectedPrice, actualPrice, .00000001); 
+    }
+    
+    @Test
+    public void testSetPriceWithNegativeValue() {
+        // AAA Format - Arrange, Act, Assert
         
+        // Arrange
+        double expectedPrice = 0;
+        
+        // Act
+        ItemForSale item = new ItemForSale("", -4.2, 0);
+        double actualPrice = item.getPrice();
+        
+        // Assert - when using doubles, use the delta to say they are close enough
+        assertEquals(expectedPrice, actualPrice, .00000001); 
     }
 
     @Test
     public void testSetQuantity() {
-        System.out.println("setQuantity");
-        int quantity = 0;
-        ItemForSale instance = null;
-        instance.setQuantity(quantity);
-        fail("The test case is a prototype.");
+        // Arrange
+        int expectedQuantity = 42;
+        
+        // Act
+        ItemForSale item = new ItemForSale("", 0, expectedQuantity );
+        int actualQuantity = item.getQuantity();
+        
+        // Assert
+        assertEquals(expectedQuantity, actualQuantity);
     }
-
+    
     @Test
-    public void testGetPrice() {
-        System.out.println("getPrice");
-        ItemForSale instance = null;
-        double expResult = 0.0;
-        double result = instance.getPrice();
-        assertEquals(expResult, result, 0.0);
-        fail("The test case is a prototype.");
+    public void testSetQuantityWithNegativeValue() {
+        // Arrange
+        int expectedQuantity = 0;
+        
+        // Act
+        ItemForSale item = new ItemForSale("", 0, -42 );
+        int actualQuantity = item.getQuantity();
+        
+        // Assert
+        assertEquals(expectedQuantity, actualQuantity);
     }
 
+    
     @Test
     public void testGetName() {
-        System.out.println("getName");
-        ItemForSale instance = null;
-        String expResult = "";
-        String result = instance.getName();
-        assertEquals(expResult, result);
-        fail("The test case is a prototype.");
+        // Arrange
+        String expectedName = "Coffee";
+        
+        // Act
+        ItemForSale item = new ItemForSale(expectedName, 0, 0);
+        String actualName = item.getName();
+        
+        // Assert
+        assertEquals(expectedName, actualName);
     }
 
-    @Test
-    public void testGetQuantity() {
-        System.out.println("getQuantity");
-        ItemForSale instance = null;
-        int expResult = 0;
-        int result = instance.getQuantity();
-        assertEquals(expResult, result);
-        fail("The test case is a prototype.");
-    }
 
     @Test
     public void testGetTotalCost() {
-        System.out.println("getTotalCost");
-        ItemForSale instance = null;
-        double expResult = 0.0;
-        double result = instance.getTotalCost();
-        assertEquals(expResult, result, 0.0);
-        fail("The test case is a prototype.");
+        // Arrange
+        double itemCost = 4.2;
+        int itemQuantity = 42;
+        double expectedTotalCost = itemCost * itemQuantity;
+        
+        // Act
+        ItemForSale item = new ItemForSale("", itemCost, itemQuantity);
+        double actualTotalCost = item.getTotalCost();
+        
+        // Assert
+        assertEquals(expectedTotalCost, actualTotalCost, .0000001);
     }
     
 }
